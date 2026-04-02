@@ -1,0 +1,25 @@
+{
+  "name": "@uos/department-product-tech",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Department overlay for product and technology roles, jobs, skills, and connector policy.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node ./node_modules/typescript/bin/tsc -p tsconfig.json",
+    "test": "node ./node_modules/vitest/vitest.mjs run",
+    "check": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
