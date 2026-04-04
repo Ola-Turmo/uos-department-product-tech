@@ -11,10 +11,10 @@ describe("plugin scaffold", () => {
     await harness.emit("issue.created", { issueId: "iss_1" }, { entityId: "iss_1", entityType: "issue" });
     expect(harness.getState({ scopeKind: "issue", scopeId: "iss_1", stateKey: "seen" })).toBe(true);
 
-    const data = await harness.getData("health") as { status: string; checkedAt: string };
+    const data = await harness.getData<{ status: string; checkedAt: string }>("health");
     expect(data.status).toBe("ok");
 
-    const action = await harness.performAction("ping") as { pong: boolean; at: string };
+    const action = await harness.performAction<{ pong: boolean; at: string }>("ping");
     expect(action.pong).toBe(true);
   });
 });

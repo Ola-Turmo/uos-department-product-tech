@@ -2,6 +2,7 @@
   "name": "@uos/department-product-tech",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Department overlay for product and technology roles, jobs, skills, and connector policy.",
   "license": "MIT",
   "main": "dist/index.js",
