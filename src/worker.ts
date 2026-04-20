@@ -77,6 +77,29 @@ const plugin = definePlugin({
       return summary;
     });
 
+    ctx.data.register("readiness.packets", async () => {
+      const packets = launchReadinessService.getActivePackets().map((packet) => ({
+        id: packet.id,
+        initiativeName: packet.initiativeName,
+        status: packet.status,
+        readinessScore: packet.readinessScore,
+        decision: packet.decision,
+      }));
+      return { packets };
+    });
+
+    ctx.data.register("incident.actions", async () => {
+      const actions = incidentLearningService.getOpenActions().map((action) => ({
+        id: action.id,
+        title: action.title,
+        kind: action.kind,
+        status: action.status,
+        priority: action.priority,
+      }));
+      const summary = incidentLearningService.generateSummary();
+      return { actions, summary };
+    });
+
     // Ping action for testing
     ctx.actions.register("ping", async () => {
       ctx.logger.info("Ping action invoked");
